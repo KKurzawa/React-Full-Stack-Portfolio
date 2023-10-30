@@ -15,12 +15,12 @@ app.get('/', (req, res) => {
 })
 
 app.post('/api/sendemail', async (req, res) => {
-    const { emailTo } = req.body;
+    // const { emailFrom } = dotenv.process.env;
 
 
     try {
-        const send_to = emailTo;
-        const sent_from = emailTo;
+        const send_to = process.env.EMAIL_USER;
+        const sent_from = process.env.EMAIL_USER;
         const subject = "Yo";
         const message = `
             <h3>Hello Zino</h3>
@@ -37,5 +37,5 @@ app.post('/api/sendemail', async (req, res) => {
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}...`);
-    // console.log(dotenv)
+    console.log(dotenv)
 })

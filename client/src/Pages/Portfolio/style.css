@@ -1,0 +1,9 @@
+.project-container {
+   column-count: 2;
+}
+
+@media screen and (max-width: 900px){
+   .project-container {
+      column-count: 1;
+   }
+}

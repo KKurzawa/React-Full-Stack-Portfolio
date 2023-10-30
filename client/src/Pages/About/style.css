@@ -1,0 +1,27 @@
+.about-me {
+    display: flex;
+    flex-direction: column;
+    column-count: 1;
+    align-items: center;
+    margin: 0em 15em 0em 15em;
+  }
+
+  .profile-pic {
+    width: 50vw;
+    height: auto;
+  }
+
+  .page-header {
+    font-size: 3em;
+  }
+
+@media screen and (max-width: 900px){
+ .about-me {
+    margin:0;
+    padding-left:20px;
+    padding-right:20px;
+ }
+}
+
+  
+
