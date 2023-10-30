@@ -1,29 +1,33 @@
 import { useState } from 'react';
 import './style.css';
 import { validateEmail } from '../../utils/helpers';
+import axios from 'axios';
 
 export default function Contact() {
     const [name, setName] = useState('');
+    const [subject, setSubject] = useState('');
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
 
-    const handleInputChange = (e) => {
+    const handleFormSubmit = async (e) => {
+        e.preventDefault();
+
         const { target } = e;
         const inputType = target.name;
         const inputValue = target.value;
 
         if (inputType === 'name') {
-            setName(inputValue);
+            setSubject(inputValue);
         } else if (inputType === 'email') {
             setEmail(inputValue);
         } else {
             setMessage(inputValue);
         }
-    };
+        const data = { subject, email, message };
 
-    const handleFormSubmit = (e) => {
-        e.preventDefault();
+        axios.post('http://localhost:3001/api/sendemail', data);
+        console.log(data);
 
         if (!validateEmail(email)) {
             setErrorMessage('Email is invalid');
@@ -33,6 +37,7 @@ export default function Contact() {
         alert(`Thank you for your submission ${name}!`);
 
         setName('');
+        setSubject('');
         setEmail('');
         setMessage('');
     };
@@ -44,14 +49,22 @@ export default function Contact() {
                 <input
                     value={name}
                     name="name"
-                    onChange={handleInputChange}
+                    onChange={(e) => setName(e.target.value)}
                     type="text"
                     placeholder="Name"
                 />
                 <input
+                    value={subject}
+                    name="subject"
+                    onChange={(e) => setSubject(e.target.value)}
+                    type="text"
+                    placeholder="Subject"
+                />
+                <input
                     value={email}
                     name="email"
-                    onChange={handleInputChange}
+                    onChange={(e) => setEmail(e.target.value)}
+                    // onChange={handleInputChange}
                     type="email"
                     placeholder="Email"
                 />
@@ -59,18 +72,20 @@ export default function Contact() {
                     id='messageBody'
                     value={message}
                     name="message"
-                    onChange={handleInputChange}
+                    onChange={(e) => setMessage(e.target.value)}
                     type="message"
                     placeholder="Message"
                 />
                 <button className="submit-button" type="submit">Submit</button>
             </form>
-            {errorMessage && (
-                <div>
-                    <p className="error-text">{errorMessage}</p>
-                </div>
-            )}
-        </div>
+            {
+                errorMessage && (
+                    <div>
+                        <p className="error-text">{errorMessage}</p>
+                    </div>
+                )
+            }
+        </div >
     );
 }
 

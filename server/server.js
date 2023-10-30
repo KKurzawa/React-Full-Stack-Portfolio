@@ -15,18 +15,11 @@ app.get('/', (req, res) => {
 })
 
 app.post('/api/sendemail', async (req, res) => {
-    // const { emailFrom } = dotenv.process.env;
-
-
     try {
-        const send_to = process.env.EMAIL_USER;
+        const send_to = req.body.email;
         const sent_from = process.env.EMAIL_USER;
-        const subject = "Yo";
-        const message = `
-            <h3>Hello Zino</h3>
-            <p>Thanks for the Tutorials</p>
-            <p>Regards...</p>
-        `
+        const subject = req.body.subject;
+        const message = req.body.message;
 
         await sendEmail(subject, message, send_to, sent_from)
         res.status(200).json({ success: true, message: 'Email Sent' })
@@ -34,7 +27,7 @@ app.post('/api/sendemail', async (req, res) => {
         res.status(500).json(error.message)
     }
 })
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}...`);
     console.log(dotenv)
