@@ -64,7 +64,6 @@ export default function Contact() {
                     value={email}
                     name="email"
                     onChange={(e) => setEmail(e.target.value)}
-                    // onChange={handleInputChange}
                     type="email"
                     placeholder="Email"
                 />
@@ -76,7 +75,7 @@ export default function Contact() {
                     type="message"
                     placeholder="Message"
                 />
-                <button className="submit-button" type="submit">Submit</button>
+                <button className="submit-button" type="submit">Send Email</button>
             </form>
             {
                 errorMessage && (

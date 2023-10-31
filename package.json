@@ -1,1 +1,25 @@
-{}
+{
+  "name": "react-portfolio-back-end-test",
+  "version": "1.0.0",
+  "description": "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) # React-Full-Stack-Portfolio",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently \"cd server && npm run dev\" \"cd client && npm run dev\"",
+    "build": "cd client && npm run build",
+    "start": "cd server && npm run start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/KKurzawa/React-Full-Stack-Portfolio.git"
+  },
+  "author": "Kris Kurzawa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KKurzawa/React-Full-Stack-Portfolio/issues"
+  },
+  "homepage": "https://github.com/KKurzawa/React-Full-Stack-Portfolio#readme",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
