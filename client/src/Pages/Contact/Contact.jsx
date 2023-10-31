@@ -34,7 +34,7 @@ export default function Contact() {
             return;
         }
 
-        alert(`Thank you for your submission ${name}!`);
+        alert(`Thank you for your email ${name}!`);
 
         setName('');
         setSubject('');
