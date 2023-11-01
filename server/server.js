@@ -1,9 +1,11 @@
-const dotenv = require("dotenv").config();
+const dotenv = require("dotenv");
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const sendEmail = require('./utils/sendEmail');
 const path = require('path');
+console.log('***************', process.env.NODE_ENV)
+dotenv.config();
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -11,6 +13,7 @@ const app = express();
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(cors());
+
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, '../client/dist')));
