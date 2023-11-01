@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const sendEmail = require('./utils/sendEmail');
 const path = require('path');
 
+const PORT = process.env.PORT || 3001;
 const app = express();
 
 app.use(express.json());
@@ -36,7 +37,6 @@ app.post('/api/sendemail', async (req, res) => {
         res.status(500).json(error.message)
     }
 })
-const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}...`);
     console.log(dotenv)
