@@ -3,7 +3,7 @@
 
 ## Description
 
-A professional portfolio for Kris Kurzawa built with React and deployed with Netlify.  This portfolio has About Me, Portfolio, Contact, and Resume links, as well as links to Kris' Github, LinkedIn, and Stack Overflow profiles.  
+A professional full-stack portfolio for Kris Kurzawa built with React, Node and deployed with Heroku.  This portfolio has About Me, Portfolio, Contact, and Resume links, as well as links to Kris' Github, LinkedIn, and Stack Overflow profiles.  
 
 ## Usage
 
@@ -19,7 +19,7 @@ Upon clicking on the site the user is presented with a page with a picture/bio o
 
 [Github Repository](https://github.com/KKurzawa/React-Full-Stack-Portfolio)
 
-[Deployed Site]()
+[Deployed Site](https://immense-everglades-74554-f9bad473782a.herokuapp.com/)
 
 ## Credits
 
