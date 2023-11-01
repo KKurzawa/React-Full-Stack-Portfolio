@@ -26,7 +26,8 @@ export default function Contact() {
         }
         const data = { subject, email, message };
 
-        axios.post('http://localhost:3001/api/sendemail', data);
+        //   axios.post('http://localhost:3001/api/sendemail', data);
+        axios.post('/api/sendemail', data);
         console.log(data);
 
         if (!validateEmail(email)) {
