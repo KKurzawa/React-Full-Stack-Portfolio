@@ -26,8 +26,12 @@ export default function Contact() {
         }
         const data = { subject, email, message };
 
+        // Use when viewing locally
         // axios.post('http://localhost:3001/api/sendemail', data);
+
+        // Use when viewing site on Heroku
         axios.post('/api/sendemail', data);
+
         console.log(data);
 
         if (!validateEmail(email)) {
